@@ -1,25 +1,26 @@
 package DAO;
 
-import Model.Treinador;
+import Model.Pokemon;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class TreinadorDAO extends ConnectionDAO{
+public class PokemonDAO extends ConnectionDAO{
 
     //DAO - Data Access Object
     boolean sucesso = false; //Para saber se funcionou
 
     //INSERT
-    public boolean inserttreinador(Treinador treinador) {
+    public boolean insertUser(Pokemon pokemon) {
 
         connectToDB();
 
-        String sql = "INSERT INTO treinador (nome,especialidade) values(?,?)";
+        String sql = "INSERT INTO Pokemon (nome,tipo,nivel) values(?,?,?)";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, treinador.getNome());
-            pst.setString(2, treinador.getEspecialidade());
+            pst.setString(1, pokemon.getNome());
+            pst.setString(2, pokemon.getTipo());
+            pst.setInt(3, pokemon.getNivel());
             pst.execute();
             sucesso = true;
         } catch (SQLException exc) {
@@ -35,15 +36,16 @@ public class TreinadorDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //UPDATE
-    public boolean updatetreinador(String nome, Treinador treinador) {
+    public boolean updateUser(int id, Pokemon pokemon) {
         connectToDB();
-        String sql = "UPDATE treinador SET nome=?, especialidade=? where id=?";
+        String sql = "UPDATE Pokemon SET nome=?,tipo = ?,nivel=? where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, treinador.getNome());
-            pst.setString(2, treinador.getEspecialidade());
+            pst.setString(1, pokemon.getNome());
+            pst.setString(2, pokemon.getTipo());
+            pst.setInt(3, pokemon.getNivel());
+            pst.setInt(4,id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -59,14 +61,13 @@ public class TreinadorDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //DELETE
-    public boolean deletetreinador(String nome) {
+    public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM treinador where id=?";
+        String sql = "DELETE FROM Pokemon where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, nome);
+            pst.setInt(1, id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -84,26 +85,27 @@ public class TreinadorDAO extends ConnectionDAO{
     }
 
     //SELECT
-    public ArrayList<Treinador> selecttreinador() {
-        ArrayList<Treinador> treinadors = new ArrayList<>();
+    public ArrayList<Pokemon> selectUser() {
+        ArrayList<Pokemon> users = new ArrayList<>();
         connectToDB();
-        String sql = "SELECT * FROM Treinador";
+        String sql = "SELECT * FROM pokemon";
 
         try {
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de treinadors: ");
+            System.out.println("Lista de users: ");
 
             while (rs.next()) {
 
-                Treinador treinadorAux = new Treinador(rs.getString("nome"),rs.getString("especialidade"));
+                Pokemon pokemonAux = new Pokemon(rs.getString("nome"),rs.getString("tipo"),rs.getInt("nivel"));
 
-                System.out.println("nome = " + treinadorAux.getNome());
-                System.out.println("especialidade = " + treinadorAux.getEspecialidade());
+                System.out.println("nome = " + pokemonAux.getNome());
+                System.out.println("tipo = " + pokemonAux.getTipo());
+                System.out.println("nivel = " + pokemonAux.getNivel());
                 System.out.println("--------------------------------");
 
-                treinadors.add(treinadorAux);
+                users.add(pokemonAux);
             }
             sucesso = true;
         } catch (SQLException e) {
@@ -117,6 +119,8 @@ public class TreinadorDAO extends ConnectionDAO{
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return treinadors;
+        return users;
     }
 }
+
+

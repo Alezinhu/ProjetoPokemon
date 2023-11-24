@@ -1,16 +1,15 @@
 package Model;
 
 public class Pokemon {
-     String nome;
-     String tipo;
-     int nivel;
-     float peso;
+    private int id;
+    private String nome;
+    private String tipo;
+    private int nivel;
 
-    public Pokemon(String nome, String tipo, int nivel, int peso) {
+    public Pokemon(String nome, String tipo, int nivel) {
         this.nome = nome;
         this.tipo = tipo;
         this.nivel = nivel;
-        this.peso = peso;
     }
 
     public String getNome() {
@@ -23,9 +22,5 @@ public class Pokemon {
 
     public int getNivel() {
         return nivel;
-    }
-
-    public float getPeso() {
-        return peso;
     }
 }

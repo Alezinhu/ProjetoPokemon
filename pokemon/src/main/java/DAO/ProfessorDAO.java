@@ -1,27 +1,26 @@
 package DAO;
 
-import Model.Fogo;
+import Model.Professor;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class FogoDAO extends ConnectionDAO{
+public class ProfessorDAO extends ConnectionDAO{
 
     //DAO - Data Access Object
     boolean sucesso = false; //Para saber se funcionou
 
     //INSERT
-    public boolean insertfogo(Fogo fogo) {
+    public boolean insertUser(Professor professor) {
 
         connectToDB();
 
-        String sql = "INSERT INTO fogo (nome,tipo,nivel,peso) values(?,?,?,?)";
+        String sql = "INSERT INTO Professor (nome,nivel,especialidade) values(?,?,?)";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, fogo.getNome());
-            pst.setString(2, fogo.getTipo());
-            pst.setInt(3, fogo.getNivel());
-            pst.setFloat(4, fogo.getPeso());
+            pst.setString(1, professor.getNome());
+            pst.setInt(2, professor.getNivel());
+            pst.setString(3,professor.getEspecialidade());
             pst.execute();
             sucesso = true;
         } catch (SQLException exc) {
@@ -37,17 +36,16 @@ public class FogoDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //UPDATE
-    public boolean updatefogo(String nome, Fogo fogo) {
+    public boolean updateUser(int id, Professor professor) {
         connectToDB();
-        String sql = "UPDATE fogo SET nome=?, tipo=?, nivel=?, peso= ? where id=?";
+        String sql = "UPDATE Professor SET nome=?, nivel=?, especialidade=? where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, fogo.getNome());
-            pst.setString(2, fogo.getTipo());
-            pst.setInt(3, fogo.getNivel());
-            pst.setFloat(4, fogo.getPeso());
+            pst.setString(1, professor.getNome());
+            pst.setInt(2, professor.getNivel());
+            pst.setString(3, professor.getEspecialidade());
+            pst.setInt(4,id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -63,14 +61,13 @@ public class FogoDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //DELETE
-    public boolean deletefogo(String nome) {
+    public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM fogo where id=?";
+        String sql = "DELETE FROM Professor where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, nome);
+            pst.setInt(1, id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -88,28 +85,27 @@ public class FogoDAO extends ConnectionDAO{
     }
 
     //SELECT
-    public ArrayList<Fogo> selectfogo() {
-        ArrayList<Fogo> fogos = new ArrayList<>();
+    public ArrayList<Professor> selectUser() {
+        ArrayList<Professor> users = new ArrayList<>();
         connectToDB();
-        String sql = "SELECT * FROM Fogo";
+        String sql = "SELECT * FROM Professor";
 
         try {
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de fogos: ");
+            System.out.println("Lista de users: ");
 
             while (rs.next()) {
 
-                Fogo fogoAux = new Fogo(rs.getString("nome"),rs.getString("tipo"),rs.getInt("nivel"),rs.getInt("peso"),rs.getString("ataqueFogo"));
+                Professor professorAux = new Professor(rs.getString("nome"),rs.getInt("nivel"),rs.getString("especialidade"));
 
-                System.out.println("nome = " + fogoAux.getNome());
-                System.out.println("tipo = " + fogoAux.getTipo());
-                System.out.println("nivel = " + fogoAux.getNivel());
-                System.out.println("peso = " + fogoAux.getPeso());
+                System.out.println("nome = " + professorAux.getNome());
+                System.out.println("nivel = " + professorAux.getNivel());
+                System.out.println("especialidade= " + professorAux.getEspecialidade());
                 System.out.println("--------------------------------");
 
-                fogos.add(fogoAux);
+                users.add(professorAux);
             }
             sucesso = true;
         } catch (SQLException e) {
@@ -123,6 +119,8 @@ public class FogoDAO extends ConnectionDAO{
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return fogos;
+        return users;
     }
 }
+
+

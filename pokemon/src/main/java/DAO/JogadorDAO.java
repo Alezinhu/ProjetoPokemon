@@ -1,26 +1,26 @@
 package DAO;
 
-
-import Model.Professor;
+import Model.Jogador;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class ProfessorDAO extends ConnectionDAO{
+public class JogadorDAO extends ConnectionDAO{
 
     //DAO - Data Access Object
     boolean sucesso = false; //Para saber se funcionou
 
     //INSERT
-    public boolean insertprofessor(Professor professor) {
+    public boolean insertUser(Jogador jogador) {
 
         connectToDB();
 
-        String sql = "INSERT INTO professor (nome,especialidade) values(?,?)";
+        String sql = "INSERT INTO Jogador (nome,nivel,vitorias) values(?,?,?)";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, professor.getNome());
-            pst.setInt(2, professor.getqntDePokemons());
+            pst.setString(1, jogador.getNome());
+            pst.setInt(2, jogador.getNivel());
+            pst.setInt(3,jogador.getVitorias());
             pst.execute();
             sucesso = true;
         } catch (SQLException exc) {
@@ -36,15 +36,16 @@ public class ProfessorDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //UPDATE
-    public boolean updateprofessor(String nome, Professor professor) {
+    public boolean updateUser(int id, Jogador jogador) {
         connectToDB();
-        String sql = "UPDATE professor SET nome=?, especialidade=? where id=?";
+        String sql = "UPDATE Jogador SET nome=?, nivel=?, vitorias=? where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, professor.getNome());
-            pst.setInt(2, professor.getqntDePokemons());
+            pst.setString(1, jogador.getNome());
+            pst.setInt(2, jogador.getNivel());
+            pst.setInt(3,jogador.getVitorias());
+            pst.setInt(4,id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -60,14 +61,13 @@ public class ProfessorDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //DELETE
-    public boolean deleteprofessor(String nome) {
+    public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM professor where id=?";
+        String sql = "DELETE FROM Jogador where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, nome);
+            pst.setInt(1, id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -85,26 +85,27 @@ public class ProfessorDAO extends ConnectionDAO{
     }
 
     //SELECT
-    public ArrayList<Professor> selectprofessor() {
-        ArrayList<Professor> professors = new ArrayList<>();
+    public ArrayList<Jogador> selectUser() {
+        ArrayList<Jogador> users = new ArrayList<>();
         connectToDB();
-        String sql = "SELECT * FROM Professor";
+        String sql = "SELECT * FROM Jogador";
 
         try {
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de professors: ");
+            System.out.println("Lista de users: ");
 
             while (rs.next()) {
 
-                Professor professorAux = new Professor(rs.getString("nome"),rs.getInt("qntDePokemons"));
+                Jogador jogadorAux = new Jogador(rs.getString("nome"),rs.getInt("nivel"),rs.getInt("vitorias"));
 
-                System.out.println("nome = " + professorAux.getNome());
-                System.out.println("especialidade = " + professorAux.getqntDePokemons());
+                System.out.println("nome = " + jogadorAux.getNome());
+                System.out.println("nivel = " + jogadorAux.getNivel());
+                System.out.println("vitorias = " + jogadorAux.getVitorias());
                 System.out.println("--------------------------------");
 
-                professors.add(professorAux);
+                users.add(jogadorAux);
             }
             sucesso = true;
         } catch (SQLException e) {
@@ -118,6 +119,8 @@ public class ProfessorDAO extends ConnectionDAO{
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return professors;
+        return users;
     }
 }
+
+

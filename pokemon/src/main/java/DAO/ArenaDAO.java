@@ -1,27 +1,25 @@
 package DAO;
 
-import Model.Normal;
+import Model.Arena;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class NormalDAO extends ConnectionDAO{
+public class ArenaDAO extends ConnectionDAO{
 
     //DAO - Data Access Object
     boolean sucesso = false; //Para saber se funcionou
 
     //INSERT
-    public boolean insertnormal(Normal normal) {
+    public boolean insertUser(Arena arena) {
 
         connectToDB();
 
-        String sql = "INSERT INTO normal (nome,tipo,nivel,peso) values(?,?,?,?)";
+        String sql = "INSERT INTO Arena (nome,dificuldade) values(?,?)";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, normal.getNome());
-            pst.setString(2, normal.getTipo());
-            pst.setInt(3, normal.getNivel());
-            pst.setFloat(4, normal.getPeso());
+            pst.setString(1, arena.getNome());
+            pst.setString(2, arena.getDificuldade());
             pst.execute();
             sucesso = true;
         } catch (SQLException exc) {
@@ -37,17 +35,15 @@ public class NormalDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //UPDATE
-    public boolean updatenormal(String nome, Normal normal) {
+    public boolean updateUser(int id, Arena arena) {
         connectToDB();
-        String sql = "UPDATE normal SET nome=?, tipo=?, nivel=?, peso= ? where id=?";
+        String sql = "UPDATE Arena SET nome=?, dificuldade=? where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, normal.getNome());
-            pst.setString(2, normal.getTipo());
-            pst.setInt(3, normal.getNivel());
-            pst.setFloat(4, normal.getPeso());
+            pst.setString(1, arena.getNome());
+            pst.setString(2, arena.getDificuldade());
+            pst.setInt(3,id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -63,14 +59,13 @@ public class NormalDAO extends ConnectionDAO{
         }
         return sucesso;
     }
-
     //DELETE
-    public boolean deletenormal(String nome) {
+    public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM normal where id=?";
+        String sql = "DELETE FROM Arena where id=?";
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1, nome);
+            pst.setInt(1, id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -88,28 +83,26 @@ public class NormalDAO extends ConnectionDAO{
     }
 
     //SELECT
-    public ArrayList<Normal> selectnormal() {
-        ArrayList<Normal> normals = new ArrayList<>();
+    public ArrayList<Arena> selectUser() {
+        ArrayList<Arena> users = new ArrayList<>();
         connectToDB();
-        String sql = "SELECT * FROM Normal";
+        String sql = "SELECT * FROM Arena";
 
         try {
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de normals: ");
+            System.out.println("Lista de users: ");
 
             while (rs.next()) {
 
-                Normal normalAux = new Normal(rs.getString("nome"),rs.getString("tipo"),rs.getInt("nivel"),rs.getInt("peso"),rs.getString("ataque"));
+                Arena arenaAux = new Arena(rs.getString("nome"),rs.getString("dificuldade"));
 
-                System.out.println("nome = " + normalAux.getNome());
-                System.out.println("tipo = " + normalAux.getTipo());
-                System.out.println("nivel = " + normalAux.getNivel());
-                System.out.println("peso = " + normalAux.getPeso());
+                System.out.println("nome = " + arenaAux.getNome());
+                System.out.println("dificuldade = " + arenaAux.getDificuldade());
                 System.out.println("--------------------------------");
 
-                normals.add(normalAux);
+                users.add(arenaAux);
             }
             sucesso = true;
         } catch (SQLException e) {
@@ -123,6 +116,8 @@ public class NormalDAO extends ConnectionDAO{
                 System.out.println("Erro: " + e.getMessage());
             }
         }
-        return normals;
+        return users;
     }
 }
+
+
