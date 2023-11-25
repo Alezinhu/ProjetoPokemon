@@ -5,35 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e7279eb-6287-4810-8625-4afe146e2d46" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/AguaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ConnectionDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/EletricoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/FogoDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/GramaDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/NormalDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/PokedexDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/ProfessorDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DAO/TreinadorDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Agua.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Ataque.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Eletrico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Fogo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Grama.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Normal.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Pokedex.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Pokemon.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Professor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Treinador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../database/database.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../database/pokemon.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../database/pokemon.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ArenaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ArenaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ConnectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ConnectionDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/JogadorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/JogadorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/PokemonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/PokemonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ProfessorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ProfessorDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Pokemon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Professor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,10 +32,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": -1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="2YdQlqwxWLdBN8RS6NcQ7sx4cVe" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -62,21 +43,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/analves/Desktop/ProjetoPokemon/pokemon",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/analves/Desktop/ProjetoPokemon/pokemon&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\analves\Desktop\ProjetoPokemon\pokemon\src" />
@@ -91,6 +72,10 @@
       <option name="presentableId" value="Default" />
       <updated>1700853135410</updated>
       <workItem from="1700853135955" duration="4043000" />
+      <workItem from="1700857920266" duration="64000" />
+      <workItem from="1700857994709" duration="2885000" />
+      <workItem from="1700860902301" duration="274000" />
+      <workItem from="1700861187890" duration="4208000" />
     </task>
     <servers />
   </component>

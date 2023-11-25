@@ -15,12 +15,13 @@ public class ProfessorDAO extends ConnectionDAO{
 
         connectToDB();
 
-        String sql = "INSERT INTO Professor (nome,nivel,especialidade) values(?,?,?)";
+        String sql = "INSERT INTO Professor(nome,nivel,especialidade,Jogador_idJogador) values(?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, professor.getNome());
             pst.setInt(2, professor.getNivel());
             pst.setString(3,professor.getEspecialidade());
+            pst.setInt(4,professor.getAluno());
             pst.execute();
             sucesso = true;
         } catch (SQLException exc) {
@@ -39,13 +40,14 @@ public class ProfessorDAO extends ConnectionDAO{
     //UPDATE
     public boolean updateUser(int id, Professor professor) {
         connectToDB();
-        String sql = "UPDATE Professor SET nome=?, nivel=?, especialidade=? where id=?";
+        String sql = "UPDATE Professor SET nome=?, nivel=?, especialidade=?, Jogador_idJogador=? where idProfessor=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, professor.getNome());
             pst.setInt(2, professor.getNivel());
             pst.setString(3, professor.getEspecialidade());
-            pst.setInt(4,id);
+            pst.setInt(4,professor.getAluno());
+            pst.setInt(5,id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -64,7 +66,7 @@ public class ProfessorDAO extends ConnectionDAO{
     //DELETE
     public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM Professor where id=?";
+        String sql = "DELETE FROM Professor where idProfessor=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);
@@ -94,15 +96,16 @@ public class ProfessorDAO extends ConnectionDAO{
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de users: ");
+            System.out.println("Lista de Professores: ");
 
             while (rs.next()) {
 
-                Professor professorAux = new Professor(rs.getString("nome"),rs.getInt("nivel"),rs.getString("especialidade"));
+                Professor professorAux = new Professor(rs.getString("nome"),rs.getInt("nivel"),rs.getString("especialidade"),rs.getInt("Jogador_idJogador"));
 
                 System.out.println("nome = " + professorAux.getNome());
                 System.out.println("nivel = " + professorAux.getNivel());
                 System.out.println("especialidade= " + professorAux.getEspecialidade());
+                System.out.println("da aula pro aluno = " + professorAux.getAluno());
                 System.out.println("--------------------------------");
 
                 users.add(professorAux);

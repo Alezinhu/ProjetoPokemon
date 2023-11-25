@@ -15,12 +15,13 @@ public class PokemonDAO extends ConnectionDAO{
 
         connectToDB();
 
-        String sql = "INSERT INTO Pokemon (nome,tipo,nivel) values(?,?,?)";
+        String sql = "INSERT INTO Pokemon (nome,tipo,nivel,Jogador_idJogador) values(?,?,?,?)";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, pokemon.getNome());
             pst.setString(2, pokemon.getTipo());
             pst.setInt(3, pokemon.getNivel());
+            pst.setInt(4,pokemon.getId_jogador());
             pst.execute();
             sucesso = true;
         } catch (SQLException exc) {
@@ -39,13 +40,14 @@ public class PokemonDAO extends ConnectionDAO{
     //UPDATE
     public boolean updateUser(int id, Pokemon pokemon) {
         connectToDB();
-        String sql = "UPDATE Pokemon SET nome=?,tipo = ?,nivel=? where id=?";
+        String sql = "UPDATE Pokemon SET nome=?,tipo = ?,nivel=?,Jogador_idJogador=? where idPokemon=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, pokemon.getNome());
             pst.setString(2, pokemon.getTipo());
             pst.setInt(3, pokemon.getNivel());
-            pst.setInt(4,id);
+            pst.setInt(4,pokemon.getId_jogador());
+            pst.setInt(5,id);
             pst.execute();
             sucesso = true;
         } catch (SQLException ex) {
@@ -64,7 +66,7 @@ public class PokemonDAO extends ConnectionDAO{
     //DELETE
     public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM Pokemon where id=?";
+        String sql = "DELETE FROM Pokemon where idPokemon=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);
@@ -88,21 +90,22 @@ public class PokemonDAO extends ConnectionDAO{
     public ArrayList<Pokemon> selectUser() {
         ArrayList<Pokemon> users = new ArrayList<>();
         connectToDB();
-        String sql = "SELECT * FROM pokemon";
+        String sql = "SELECT * FROM Pokemon";
 
         try {
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de users: ");
+            System.out.println("Lista de Pokemons: ");
 
             while (rs.next()) {
 
-                Pokemon pokemonAux = new Pokemon(rs.getString("nome"),rs.getString("tipo"),rs.getInt("nivel"));
+                Pokemon pokemonAux = new Pokemon(rs.getString("nome"),rs.getString("tipo"),rs.getInt("nivel"),rs.getInt("Jogador_idJogador"));
 
                 System.out.println("nome = " + pokemonAux.getNome());
                 System.out.println("tipo = " + pokemonAux.getTipo());
                 System.out.println("nivel = " + pokemonAux.getNivel());
+                System.out.println("Treinador do Pokemon" + pokemonAux.getId_jogador());
                 System.out.println("--------------------------------");
 
                 users.add(pokemonAux);

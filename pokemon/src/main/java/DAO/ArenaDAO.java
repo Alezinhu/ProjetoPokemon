@@ -38,7 +38,7 @@ public class ArenaDAO extends ConnectionDAO{
     //UPDATE
     public boolean updateUser(int id, Arena arena) {
         connectToDB();
-        String sql = "UPDATE Arena SET nome=?, dificuldade=? where id=?";
+        String sql = "UPDATE Arena SET nome=?, dificuldade=? where idArena=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, arena.getNome());
@@ -62,7 +62,7 @@ public class ArenaDAO extends ConnectionDAO{
     //DELETE
     public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM Arena where id=?";
+        String sql = "DELETE FROM Arena where idArena=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);

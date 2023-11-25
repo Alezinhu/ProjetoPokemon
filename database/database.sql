@@ -1,57 +1,65 @@
-CREATE SCHEMA IF NOT EXISTS `pokemon` DEFAULT CHARACTER SET utf8 ;
-USE `pokemon` ;
+CREATE SCHEMA IF NOT EXISTS `ale` DEFAULT CHARACTER SET utf8 ;
+USE `ale` ;
 
-CREATE TABLE IF NOT EXISTS `pokemon`.`Jogador` (
-  `idJogador` INT NOT NULL,
+
+CREATE TABLE IF NOT EXISTS `ale`.`Jogador` (
+  `idJogador` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `nivel` INT NOT NULL,
   `vitorias` INT NOT NULL,
   PRIMARY KEY (`idJogador`));
-
-CREATE TABLE IF NOT EXISTS `pokemon`.`Pokemon` (
-  `idPokemon` INT NOT NULL,
+  
+CREATE TABLE IF NOT EXISTS `ale`.`Pokemon` (
+  `idPokemon` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `tipo` VARCHAR(45) NOT NULL,
   `nivel` INT NOT NULL,
-  `Treinador_idTreinador` INT NOT NULL,
-  PRIMARY KEY (`idPokemon`, `Treinador_idTreinador`),
-  CONSTRAINT `fk_Pokemon_Treinador`
-    FOREIGN KEY (`Treinador_idTreinador`)
-    REFERENCES `pokemon`.`Jogador` (`idJogador`)
+  `Jogador_idJogador` INT NOT NULL,
+  PRIMARY KEY (`idPokemon`, `Jogador_idJogador`),
+  CONSTRAINT `fk_Pokemon_Jogador1`
+    FOREIGN KEY (`Jogador_idJogador`)
+    REFERENCES `ale`.`Jogador` (`idJogador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
-CREATE TABLE IF NOT EXISTS `pokemon`.`Professor` (
-  `idProfessor` INT NOT NULL,
+    
+CREATE TABLE IF NOT EXISTS `ale`.`Professor` (
+  `idProfessor` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `nivel` INT NOT NULL,
   `especialidade` VARCHAR(45) NOT NULL,
-  `Treinador_idTreinador` INT NOT NULL,
-  PRIMARY KEY (`idProfessor`, `Treinador_idTreinador`),
-  CONSTRAINT `fk_Professor_Treinador1`
-    FOREIGN KEY (`Treinador_idTreinador`)
-    REFERENCES `pokemon`.`Jogador` (`idJogador`)
+  `Jogador_idJogador` INT NOT NULL,
+  PRIMARY KEY (`idProfessor`, `Jogador_idJogador`),
+  CONSTRAINT `fk_Professor_Jogador1`
+    FOREIGN KEY (`Jogador_idJogador`)
+    REFERENCES `ale`.`Jogador` (`idJogador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
 
-CREATE TABLE IF NOT EXISTS `pokemon`.`Arena` (
-  `idArena` INT NOT NULL,
+CREATE TABLE IF NOT EXISTS `ale`.`Arena` (
+  `idArena` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `dificuldade` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idArena`));
-
-CREATE TABLE IF NOT EXISTS `pokemon`.`Batalha` (
+  
+CREATE TABLE IF NOT EXISTS `ale`.`Jogador_has_Arena` (
   `Jogador_idJogador` INT NOT NULL,
-  `Ginásio_idGinásio` INT NOT NULL,
-  PRIMARY KEY (`Jogador_idJogador`, `Ginásio_idGinásio`),
-  CONSTRAINT `fk_Jogador_has_Ginásio_Jogador1`
+  `Arena_idArena` INT NOT NULL,
+  PRIMARY KEY (`Jogador_idJogador`, `Arena_idArena`),
+  CONSTRAINT `fk_Jogador_has_Arena_Jogador1`
     FOREIGN KEY (`Jogador_idJogador`)
-    REFERENCES `pokemon`.`Jogador` (`idJogador`)
+    REFERENCES `ale`.`Jogador` (`idJogador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Jogador_has_Ginásio_Ginásio1`
-    FOREIGN KEY (`Ginásio_idGinásio`)
-    REFERENCES `pokemon`.`Arena` (`idArena`)
+  CONSTRAINT `fk_Jogador_has_Arena_Arena1`
+    FOREIGN KEY (`Arena_idArena`)
+    REFERENCES `ale`.`Arena` (`idArena`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
+    
+    SELECT * FROM Pokemon;
+    SELECT * FROM Professor;
+    SELECT * FROM Jogador;
+    SELECT * FROM Arena;
+
+    
 

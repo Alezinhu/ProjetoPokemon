@@ -9,7 +9,7 @@ public abstract class ConnectionDAO {
     Statement st; //declaração(query) - código em sql
     ResultSet rs; //resposta do banco
 
-    String database = "pokemon";//nome do BD
+    String database = "ale";//nome do BD
     String user = "root";
     String password = "root";
     String url = "jdbc:mysql://localhost:3306/" + database + "?useTimezone=true&serverTimezone=UTC&useSSL=false&allowPublicKeyRetrieval=true";

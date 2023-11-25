@@ -39,7 +39,7 @@ public class JogadorDAO extends ConnectionDAO{
     //UPDATE
     public boolean updateUser(int id, Jogador jogador) {
         connectToDB();
-        String sql = "UPDATE Jogador SET nome=?, nivel=?, vitorias=? where id=?";
+        String sql = "UPDATE Jogador SET nome=?, nivel=?, vitorias=? where idJogador=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setString(1, jogador.getNome());
@@ -64,7 +64,7 @@ public class JogadorDAO extends ConnectionDAO{
     //DELETE
     public boolean deleteUser(int id) {
         connectToDB();
-        String sql = "DELETE FROM Jogador where id=?";
+        String sql = "DELETE FROM Jogador where idJogador=?";
         try {
             pst = con.prepareStatement(sql);
             pst.setInt(1, id);
@@ -94,7 +94,7 @@ public class JogadorDAO extends ConnectionDAO{
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de users: ");
+            System.out.println("Lista de jogadores: ");
 
             while (rs.next()) {
 

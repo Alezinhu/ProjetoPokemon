@@ -5,11 +5,13 @@ public class Professor {
     private String nome;
     private int nivel;
     private String especialidade;
+    private int aluno;
 
-    public Professor(String nome, int nivel, String especialidade) {
+    public Professor(String nome, int nivel, String especialidade, int aluno) {
         this.nome = nome;
         this.nivel = nivel;
         this.especialidade = especialidade;
+        this.aluno = aluno;
     }
 
     public String getNome() {
@@ -22,5 +24,9 @@ public class Professor {
 
     public String getEspecialidade() {
         return especialidade;
+    }
+
+    public int getAluno() {
+        return aluno;
     }
 }
