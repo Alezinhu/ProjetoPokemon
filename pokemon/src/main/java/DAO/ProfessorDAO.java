@@ -105,7 +105,7 @@ public class ProfessorDAO extends ConnectionDAO{
                 System.out.println("nome = " + professorAux.getNome());
                 System.out.println("nivel = " + professorAux.getNivel());
                 System.out.println("especialidade= " + professorAux.getEspecialidade());
-                System.out.println("da aula pro aluno = " + professorAux.getAluno());
+                System.out.println("id do aluno = " + professorAux.getAluno());
                 System.out.println("--------------------------------");
 
                 users.add(professorAux);

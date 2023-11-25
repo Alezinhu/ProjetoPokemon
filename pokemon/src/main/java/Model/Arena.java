@@ -1,7 +1,7 @@
 package Model;
 
 public class Arena {
-    private int id;
+    private int id_Arena;
     private String nome;
     private String dificuldade;
 
@@ -17,4 +17,5 @@ public class Arena {
     public String getDificuldade() {
         return dificuldade;
     }
+
 }

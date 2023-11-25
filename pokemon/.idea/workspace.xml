@@ -5,17 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0e7279eb-6287-4810-8625-4afe146e2d46" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../database/database.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../database/database.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../database/pokemon.mwb" beforeDir="false" afterPath="$PROJECT_DIR$/../database/pokemon.mwb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ArenaDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ArenaDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ConnectionDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ConnectionDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/JogadorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/JogadorDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/PokemonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/PokemonDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/DAO/ProfessorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/ProfessorDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Arena.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Arena.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Model/Pokemon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Pokemon.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Professor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/Professor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -76,6 +75,7 @@
       <workItem from="1700857994709" duration="2885000" />
       <workItem from="1700860902301" duration="274000" />
       <workItem from="1700861187890" duration="4208000" />
+      <workItem from="1700925083139" duration="14444000" />
     </task>
     <servers />
   </component>

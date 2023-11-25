@@ -28,4 +28,12 @@ public class Pokemon {
     public int getId_jogador() {
         return id_jogador;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }

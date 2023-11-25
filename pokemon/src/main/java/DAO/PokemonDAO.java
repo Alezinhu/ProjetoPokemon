@@ -105,7 +105,7 @@ public class PokemonDAO extends ConnectionDAO{
                 System.out.println("nome = " + pokemonAux.getNome());
                 System.out.println("tipo = " + pokemonAux.getTipo());
                 System.out.println("nivel = " + pokemonAux.getNivel());
-                System.out.println("Treinador do Pokemon" + pokemonAux.getId_jogador());
+                System.out.println("id do treinador= " + pokemonAux.getId_jogador());
                 System.out.println("--------------------------------");
 
                 users.add(pokemonAux);

@@ -92,7 +92,7 @@ public class ArenaDAO extends ConnectionDAO{
             st = con.createStatement();
             rs = st.executeQuery(sql);
 
-            System.out.println("Lista de users: ");
+            System.out.println("Lista de arenas: ");
 
             while (rs.next()) {
 

@@ -121,6 +121,7 @@ public class JogadorDAO extends ConnectionDAO{
         }
         return users;
     }
+
 }
 
 

@@ -1,7 +1,6 @@
 CREATE SCHEMA IF NOT EXISTS `ale` DEFAULT CHARACTER SET utf8 ;
 USE `ale` ;
 
-
 CREATE TABLE IF NOT EXISTS `ale`.`Jogador` (
   `idJogador` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
@@ -34,14 +33,14 @@ CREATE TABLE IF NOT EXISTS `ale`.`Professor` (
     REFERENCES `ale`.`Jogador` (`idJogador`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-
+    
 CREATE TABLE IF NOT EXISTS `ale`.`Arena` (
   `idArena` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
   `dificuldade` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`idArena`));
   
-CREATE TABLE IF NOT EXISTS `ale`.`Jogador_has_Arena` (
+CREATE TABLE IF NOT EXISTS `ale`.`Batalha` (
   `Jogador_idJogador` INT NOT NULL,
   `Arena_idArena` INT NOT NULL,
   PRIMARY KEY (`Jogador_idJogador`, `Arena_idArena`),
@@ -55,11 +54,3 @@ CREATE TABLE IF NOT EXISTS `ale`.`Jogador_has_Arena` (
     REFERENCES `ale`.`Arena` (`idArena`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
-    
-    SELECT * FROM Pokemon;
-    SELECT * FROM Professor;
-    SELECT * FROM Jogador;
-    SELECT * FROM Arena;
-
-    
-
